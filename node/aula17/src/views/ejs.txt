@@ -1,0 +1,17 @@
+<% Controle de fluxo (if, for...)  %>
+<% Tag 'Scriptlet', para fluxo de controle, sem saída
+<%_ A tag de scriptlet 'Whitespace Slurping', remove todos os espaços em branco antes dela
+<%= Gera o valor no modelo (HTML escapado)
+<%- Gera o valor sem escape no modelo
+<%# Tag de comentário, sem execução, sem saída
+<%% Gera um literal '<%'
+%> Tag de terminação simples
+-%> Tag de modo de corte ('slurp de nova linha'), corta seguindo a nova linha
+_%> Tag final 'Whitespace Slurping', remove todos os espaços em branco depois dela
+<%- include('CAMINHO/ARQUIVO') %>
+
+<% if (algumacoisa) { %>
+    <%= exibe alguma coisa %>
+<% } else { %>
+    <%= exibe outra coisa %>
+    <% } %>
