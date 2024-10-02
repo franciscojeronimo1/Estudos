@@ -22,6 +22,8 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'react/jsx-filename-extension': 0,
+    'react/jsx-filename-extension': 'off',
+    'react/state-in-constructor': 'off',
+    'import/no-extraneous-dependencies': 'off',
   },
 };
