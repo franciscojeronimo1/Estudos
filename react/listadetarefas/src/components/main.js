@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 
-// form
-import { FaEdit, FaWindowClose } from 'react-icons/fa';
-
 import Form from './form';
-
+import Tarefas from './Tarefas';
 // import { FaEdit, FaWindowClose } from 'react-icons/fa';
 import './main.css';
 
@@ -92,23 +89,12 @@ export default class Main extends Component {
           handleChange={this.handleChange}
           novaTarefa={novaTarefa}
         />
-        <ul className="tarefas">
-          {tarefas.map((tarefa, index) => (
-            <li key={tarefa}>
-              {tarefa}
-              <span>
-                <FaEdit
-                  onClick={(e) => this.handleEdit(e, index)}
-                  className="edit"
-                />
-                <FaWindowClose
-                  onClick={(e) => this.handleDelete(e, index)}
-                  className="delete"
-                />
-              </span>
-            </li>
-          ))}
-        </ul>
+
+        <Tarefas
+          tarefas={tarefas}
+          handleEdit={this.handleEdit}
+          handleDelete={this.handleDelete}
+        />
       </div>
     );
   }

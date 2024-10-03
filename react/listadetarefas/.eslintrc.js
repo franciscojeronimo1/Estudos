@@ -25,5 +25,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/state-in-constructor': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'react/forbid-prop-types': 'off',
+    'react/no-unused-prop-types': 'off',
   },
 };
