@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",  // ou "ES2020"
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
