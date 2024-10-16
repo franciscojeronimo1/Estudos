@@ -1,12 +1,26 @@
 public class Main {
   public static void main(String[] args) {
 
-    ninja naruto = new ninja();
+    uzumaki naruto = new uzumaki();
 
-    naruto.idade = 23;
+    naruto.setNome("naruto uzumaki");
+    naruto.temBiju = true;
+    naruto.getNome();
+    System.out.println(naruto.getNome());
+    naruto.ataqueBase();
 
-    ninja sasuke = new ninja();
+    naruto.chacraInfinito();
 
-    sasuke.idade = 20;
+    naruto.estilo = "vento";
+
+    // obj 2
+    uchiha sasuke = new uchiha();
+
+    sasuke.estilo = "fogo";
+
+    sasuke.ataqueBase();
+
+    sasuke.ataqueBase(0);
+
   }
 }
