@@ -13,6 +13,7 @@ const pessoa: Pessoa = {
   idade: 30,
   nome: 'Luiz',
   salario: 200_000,
+  corPreferida: 'AMARELO'
 };
 
 export function setCorPreferida(pessoa: Pessoa, cor: CorPreferida): Pessoa {
