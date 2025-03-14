@@ -17,6 +17,9 @@ export const Menu = () =>{
         <li>
           <Link to="/redirect">Redirect</Link>
         </li>
+        <li>
+          <Link to="/contato">Contatos</Link>
+        </li>
       </ul>
     </nav>
   )

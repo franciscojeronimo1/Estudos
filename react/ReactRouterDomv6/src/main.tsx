@@ -10,6 +10,7 @@ import { Posts } from './components/Posts'
 import { Redirect } from './components/Redirect'
 import { NotFound } from './components/NotFound'
 import { Post } from './components/Post'
+import { Contato } from './components/Contato'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/posts' element={<Posts/>}/>
       <Route path='/redirect' element={<Redirect/>}/>
       <Route path='*' element={<NotFound/>}/>
+      <Route path='/contato' element={<Contato/>}/>
     </Routes>
     </BrowserRouter>
   </StrictMode>,
