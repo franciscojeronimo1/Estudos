@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
-class App extends Component() {
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
 
-        <scrollView>
+        <ScrollView showsVerticalScrollIndicator={false} >
           <View style={styles.box1}></View>
           <View style={styles.box2}></View>
           <View style={styles.box3}></View>
           <View style={styles.box4}></View>
-        </scrollView>
+
+        </ScrollView>
+
+
 
       </View>
     );
