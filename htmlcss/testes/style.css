@@ -1,5 +1,17 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 180vh;
+}
+
 h1 {
   position: relative;
   top: 50px;
   left: 250px;
+}
+
+.area {
+  width: 200px;
+  height: 80px;
+  background-color: green;
+  position: fixed;
 }
