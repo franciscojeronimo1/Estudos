@@ -16,26 +16,24 @@ body {
   margin: 50px;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
 .area {
   width: 100px;
   height: 100px;
-  flex-basis: 400px;
-  flex: 1;
+  font-size: 30px;
 }
 
 .item-1 {
   background-color: red;
-  flex-shrink: 1
 }
 
 .item-2 {
   background-color: blue;
-  flex-shrink: 1
 }
 
 .item-3 {
   background-color: darkgreen;
-  flex-shrink: 1
 }
