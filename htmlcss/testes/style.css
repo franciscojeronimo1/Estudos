@@ -1,17 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   height: 180vh;
 }
 
-h1 {
-  position: relative;
-  top: 50px;
-  left: 250px;
+.container {
+  background-color: #121212;
+  height: 500px;
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
 }
 
 .area {
-  width: 200px;
-  height: 80px;
-  background-color: green;
-  position: fixed;
+  width: 100px;
+  height: 100px;
+  flex-basis: 400px;
+  flex: 1;
+}
+
+.item-1 {
+  background-color: red;
+  flex-shrink: 1
+}
+
+.item-2 {
+  background-color: blue;
+  flex-shrink: 1
+}
+
+.item-3 {
+  background-color: darkgreen;
+  flex-shrink: 1
 }
