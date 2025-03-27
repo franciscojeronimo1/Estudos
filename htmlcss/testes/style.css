@@ -16,8 +16,8 @@ body {
   margin: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .area {
@@ -28,6 +28,7 @@ body {
 
 .item-1 {
   background-color: red;
+  align-self: flex-start;
 }
 
 .item-2 {
