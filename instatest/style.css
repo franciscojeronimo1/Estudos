@@ -105,5 +105,61 @@ input[type="submit"] {
   color: #ffffff;
   font-size: 16px;
   font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 
+.infobox {
+  background-color: #FFF;
+  height: 60px;
+  border: 1px solid rgb(236, 234, 234);
+  margin: 10px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infobox p {
+  user-select: none;
+}
+
+.infobox p a {
+  font-weight: bold;
+  user-select: none;
+}
+
+.get-app-panel {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.app-buttons {
+  margin-top: 16px;
+}
+
+.app-buttons img {
+  height: 40px;
+  padding: 0 2px;
+}
+
+footer {
+  text-align: center;
+  height: 50px;
+  margin-top: 50px;
+}
+
+footer a {
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.text-small {
+  font-size: 12px;
+  font-weight: bold;
+  color: gray;
+  text-transform: uppercase;
+  padding-left: 20px;
+  display: inline-block;
 }
