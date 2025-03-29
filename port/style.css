@@ -9,6 +9,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* INICIO HEADER */
 
 nav {
@@ -161,4 +165,99 @@ nav {
 
 .projects img:hover {
   opacity: 1;
+}
+
+.action {
+  background-color: #181818;
+  border: 0;
+  padding: 12px 28px;
+  border-radius: 4px;
+  font-size: 18px;
+  color: #FFFFFF;
+  margin-top: 18px;
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+.action:hover {
+  transform: scale(1.1);
+}
+
+/* FIM PROJECTS  */
+
+/* INICIO RODAPE */
+
+footer {
+  width: 100%;
+  background-color: #181818;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+footer a {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+footer p {
+  margin-left: 12px;
+}
+
+/* FIM RODAPE */
+
+/* RESPONSIVIDADE   */
+
+@media (max-width: 1050px) {
+  .main h1 {
+    font-size: 45px;
+  }
+
+  .main p {
+    font-size: 18px;
+  }
+
+  .main {
+    background-size: cover;
+  }
+
+  .about {
+    flex-direction: column;
+    padding-top: 80px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .about div {
+    max-width: 80%;
+  }
+
+  .about div h2 {
+    font-size: 45px;
+  }
+
+  .about img {
+    width: 80%;
+    margin-top: 30px;
+  }
+
+  .projects img {
+    width: 27.5%;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  footer h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  footer p {
+    margin: 0;
+  }
 }
