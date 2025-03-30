@@ -1,12 +1,7 @@
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  outline: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -15,9 +10,13 @@ a {
 }
 
 body {
-  background: #FAFAFA;
+  --background: #FAFAFA;
+
+  background: var(--background);
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   line-height: 18px;
@@ -41,7 +40,7 @@ body {
 }
 
 .left {
-  background-image: url("./assets/main-foto.png");
+  background-image: url("assets/main-foto.png");
   background-size: 450px;
   background-repeat: no-repeat;
   background-position: center;
@@ -73,7 +72,7 @@ form {
 
 input[type="password"],
 input[type="text"] {
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   border: 1px solid rgb(236, 234, 234);
   height: 40px;
   border-radius: 4px;
@@ -89,9 +88,9 @@ input[type="text"]::placeholder {
   color: rgb(165, 164, 164);
 }
 
-
 input[type="password"]:focus,
 input[type="text"]:focus {
+  outline: 0;
   border: 1px solid #a1a1a1;
 }
 
@@ -102,7 +101,7 @@ input[type="submit"] {
   border: 0;
   background-color: #3c96ed;
   border-radius: 4px;
-  color: #ffffff;
+  color: #FFFFFF;
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
@@ -114,6 +113,7 @@ input[type="submit"] {
   height: 60px;
   border: 1px solid rgb(236, 234, 234);
   margin: 10px auto 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -145,7 +145,7 @@ input[type="submit"] {
 footer {
   text-align: center;
   height: 50px;
-  margin-top: 50px;
+  margin-top: -50px;
 }
 
 footer a {
@@ -158,8 +158,117 @@ footer a {
 .text-small {
   font-size: 12px;
   font-weight: bold;
-  color: gray;
+  color: grey;
   text-transform: uppercase;
   padding-left: 20px;
   display: inline-block;
+}
+
+/* PAGINA SIGNUP */
+#container-signup {
+  margin: 0 auto;
+  min-height: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.message {
+  margin: 10px 70px;
+}
+
+.message span {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #8e8e8e;
+}
+
+.cta-button {
+  width: 320px;
+  margin: 10px 0;
+  height: 35px;
+  background-color: #0095f6;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.divisor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.line {
+  height: 1px;
+  background-color: #e6e6e6;
+  width: 35%;
+}
+
+.divisor-tag {
+  font-weight: bold;
+  margin: 0 2.5%;
+  color: #8e8e8e;
+  user-select: none;
+}
+
+
+@media (max-width:850px) {
+  .left {
+    display: none;
+  }
+
+  #container {
+    width: 70%;
+  }
+
+  .right {
+    padding-left: 0;
+  }
+}
+
+@media (max-width) {
+  #container {
+    width: 90%;
+  }
+
+  #container-signup {
+    width: 90%;
+  }
+
+  input[type="password"],
+  input[type="text"],
+  input[type="submit"] {
+    width: 85%;
+  }
+
+  .cta-button {
+    width: 85%;
+  }
+
+  .message {
+    margin: 10px 25px;
+  }
+}
+
+@media (max-height:700px) {
+  .app-buttons a img {
+    display: none;
+  }
+
+  .get-app-panel span {
+    display: none;
+  }
+}
+
+@media (max-height: 650px) {
+  .footer-inner {
+    margin-top: 25px;
+  }
 }

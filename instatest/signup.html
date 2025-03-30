@@ -6,30 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
 
-  <title>Sujeitogram - Sua rede social</title>
+  <title>Faça seu cadastro - Sujeitogram</title>
 </head>
 <body>
   
   <div id="wrapper">
     
     <!-- ARREA CONTAINER -->
-    <div id="container">
-
-      <!-- AREA ESQUERDA -->
-      <div class="column left">
-        <div class="main"></div>
-      </div>
-      <!-- FIM AREA ESQUERDA -->
+    <div id="container-signup">
 
       <!-- AREA DIREITA -->
-      <div class="column right">
+      <div class="column">
         <div class="login-panel">
           <div class="logo">
             <img class="logo-img" src="assets/logo.png" alt="Logo do Sujeitogram">
           </div>
 
+          <div class="message">
+            <span>Cadastre-se para ver fotos e vídeos dos seus amigos.</span>
+          </div>
+
+          <button class="cta-button">
+            Entrar com Facebook
+          </button>
+
+          <div class="divisor-container">
+            <div class="line"></div>
+            <div class="divisor-tag">ou</div>
+            <div class="line"></div>
+          </div>
+
           <form>
-            <input placeholder="Telefone, usuario ou email" type="text" name="username"/>
+            <input placeholder="Número de celular ou email" type="text" name="email"/>
+            <input placeholder="Nome completo" type="text" name="name"/>
+            <input placeholder="Username" type="text" name="username"/>
             <input placeholder="Senha" type="password" name="password" />
 
             <input type="submit" value="Entrar" />
@@ -37,11 +47,11 @@
         </div>
 
         <div class="infobox">
-          <p>Não possui uma conta? <a href="signup.html">Cadastre-se</a> </p>
+          <p>Tem uma conta? <a href="index.html">Conecte-se</a> </p>
         </div>
 
         <div class="get-app-panel">
-          Obtenha o aplicativo.
+          <span>Obtenha o aplicativo.</span>
           <div class="app-buttons">
             <a href="#">
               <img src="assets/appstore.png" alt="Baixe na AppStore">
