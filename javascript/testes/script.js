@@ -1,38 +1,34 @@
 
-var area = document.getElementById('area')
+var peso
+var altura
+var imc
+var resultado
+function calcular(event) {
+  event.preventDefault()
 
-function entrar() {
-  var nome = prompt('Digite seu nome')
+  peso = document.getElementById('peso').value
+  altura = document.getElementById('altura').value
 
-  if (nome === '' || nome === null) {
-    alert('ops algo deu errado')
-    area.innerHTML = "Clique no botao para acessar..."
-  } else {
-    area.innerHTML = `Bem vindo ${nome}  `
+  imc = peso / (altura * altura)
 
-    let botaoSair = document.createElement("button")
+  resultado = document.getElementById('resultado')
 
-    botaoSair.innerText = "Sair da conta"
-    botaoSair.onclick = sair
-    area.appendChild(botaoSair)
+  if (imc < 17) {
+    resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado vc esta muito abaixo do peso!'
+  } else if (imc > 17 && imc <= 18.49) {
+    resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado vc está abaixo do peso!'
+  }
+  else if (imc >= 18.5 && imc < 24.99) {
+    resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você está no peso ideal!'
+  }
+  else if (imc > 25 && imc <= 29.99) {
+    resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Você esta acima do peso!'
+  }
+  else if (imc >= 30) {
+    resultado.innerHTML = '<br/> Seu resultado foi: ' + imc.toFixed(2) + '<br/> Cuidado Obesidada!'
   }
 
+  document.getElementById('peso').value = '';
+  document.getElementById('altura').value = '';
 
-}
-
-
-function sair() {
-  alert("Até mais")
-  area.innerHTML = "voce saiu"
-}
-
-
-function mediaAluno(nota1, nota2) {
-  var media = (nota1 + nota2) / 2
-
-  if (media >= 7) {
-    console.log('ALuno aprovado com a média: ') + media
-  } else if (media < 7) {
-    console.log("Aluno reprovado com a média: " + media)
-  }
 }
