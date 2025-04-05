@@ -1,27 +1,39 @@
+// URL: https://sujeitoprogramador.com/rn-api/?api=posts
 
+let listElement = document.querySelector("#app")
 
+let posts = []
 
-let pessoa = {
-  nome: "Matheuys",
-  sobrenome: "Fraga",
-  empresa: "Sujeito programador",
-  cargo: "Programador"
+function nutriApp() {
+  fetch("https://sujeitoprogramador.com/rn-api/?api=posts")
+    .then((r) => r.json())
+    .then((json) => {
+      posts = json
+
+      posts.map((item) => {
+        let liElement = document.createElement("li")
+        let titleElement = document.createElement("strong")
+        let imgElement = document.createElement("img")
+        let descriptionELement = document.createElement("a")
+
+        let titleText = document.createTextNode(item.titulo)
+        titleElement.appendChild(titleText)
+        liElement.append(titleElement)
+
+        imgElement.src = item.capa
+        liElement.appendChild(imgElement)
+
+        let descriptionText = document.createTextNode(item.subtitulo)
+        descriptionELement.appendChild(descriptionText)
+        liElement.appendChild(descriptionELement)
+
+        listElement.appendChild(liElement)
+      })
+
+    })
+    .catch(() => {
+      console.log("DEU ERRO")
+    })
 }
 
-// const { nome: nomePessoa, cargo, sobrenome, empresa } = pessoa
-
-// console.log(nomePessoa)
-// console.log(cargo)
-// console.log(empresa)
-
-let nome = ["Matheus", "lucas", "Henrique"]
-
-// let { 0: matheusss, 1: lucao } = nome
-
-// console.log(matheusss)
-// console.log(lucao)
-
-
-let [prim, segund] = nome
-
-console.log(prim)
+nutriApp()
