@@ -1,57 +1,43 @@
-import { useState } from 'react'
-
-
+import { useEffect, useState } from 'react'
+import './style.css'
 
 function App() {
-  const [nome, setNome] = useState('')
-  const [email, setEmail] = useState('')
-  const [idade, setIdade] = useState('')
-  const [user, setUser] = useState({})
+  const [nutri, setNutri] = useState([])
+
+  useEffect(() => {
+
+    function loadApi() {
+      let url = 'https://sujeitoprogramador.com/rn-api/?api=posts'
+      fetch(url)
+        .then((r) => r.json())
+        .then((json) => {
+          setNutri(json)
+        })
+    }
 
 
-  function handleRegister(e) {
-    e.preventDefault()
-    setUser({
-      nome: nome,
-      idade: idade,
-      email: email,
-    })
-  }
+    loadApi()
+  }, [])
 
   return (
-    <div>
-      <h1>Cadastrando usuario</h1>
+    <div className="container">
+      <header>
+        <strong>React Nutri</strong>
+      </header>
 
-      <form onSubmit={handleRegister}>
-        <label >Nome: </label><br />
-        <input
-          placeholder="Digite seu nome"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        /><br />
+      {nutri.map((item) => {
+        return (
+          <article key={item.id} className="post">
+            <strong className="titulo">{item.titulo}</strong>
+            <img src={item.capa} alt={item.titulo} className="capa" />
+            <p className="subtitulo">
+              {item.subtitulo}
+            </p>
+            <h1>Categoria: {item.categoria}</h1>
 
-        <label >Email: </label><br />
-        <input
-          placeholder="Digite seu Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)} /><br />
-
-        <label >idade: </label><br />
-        <input
-          placeholder="Digite sua idade"
-          value={idade}
-          onChange={(e) => setIdade(e.target.value)}
-        /><br />
-
-        <button type="submit">registrar</button>
-      </form>
-      <br /><br />
-
-      <div>
-        <span>Bem vindo: {user.nome}</span><br />
-        <span>idade: {user.idade}</span><br />
-        <span>Email: {user.email} </span><br />
-      </div>
+          </article>
+        )
+      })}
     </div>
   );
 }
