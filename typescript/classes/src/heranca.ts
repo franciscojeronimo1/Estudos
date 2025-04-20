@@ -1,10 +1,12 @@
 
 
 class Usuario {
+ protected id: number;
   nome: string;
   email: string;
 
-  constructor(nome: string, email: string) {
+  constructor(id: number ,nome: string, email: string) {
+    this.id = id
     this.nome = nome;
     this.email = email;
   }
@@ -14,20 +16,24 @@ class Admin extends Usuario {
   cargo: string;
   nivel: number;
 
-  constructor( nome:string, email: string, cargo: string, nivel: number) {
+  constructor( id: number, nome:string, email: string, cargo: string, nivel: number) {
 
-    super(nome, email)
+    super(id, nome, email)
     this.cargo = cargo;
     this.nivel = nivel;
   }
 
-  mudarCargo(): void {
+  protected mudarCargo( cargo: string): void {
     console.log('alterando cargo')
+    console.log('mudando Cargo  ' ,cargo)
+  }
+
+  acessarAdmin() {
+    this.mudarCargo('designer')
   }
 
 }
 
-const usuario1 = new Admin('Catau','catau@gmail.com','programador', 6)
+const usuario1 = new Admin(123,'Catau','catau@gmail.com','programador', 6)
 
-usuario1.cargo = 'design'
-console.log(usuario1)
+usuario1.acessarAdmin()
