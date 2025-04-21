@@ -1,6 +1,6 @@
 
 
-interface NovoProduto <V> {
+interface NovoProduto <V extends number>  {
   nome: string;
   preco: V;
 }
