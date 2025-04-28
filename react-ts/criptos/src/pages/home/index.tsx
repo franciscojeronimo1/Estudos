@@ -3,7 +3,7 @@ import styles from './home.module.css'
 import { BsSearch } from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom'
 
-interface CoinProps {
+export interface CoinProps {
   id: string;
   name: string;
   symbol: string;
@@ -28,14 +28,15 @@ interface DataProps {
 export function Home () {
   const [input, setInput] = useState("")
   const [coins, setCoins] = useState<CoinProps[]>([])
+  const [offset, setOffset] = useState(0)
   const navigate = useNavigate()
 
   useEffect( ()=> {
     GetData()
-  },[])
+  },[offset])
 
   async function GetData() {
-    fetch("https://rest.coincap.io/v3/assets?limit=10&offset=0&apiKey=8726a4b76275accc3481f3dc812eaf19be93edf7e17ff2d5cd7254a33892de14")
+    fetch(`https://rest.coincap.io/v3/assets?limit=10&offset=${offset}&apiKey=8726a4b76275accc3481f3dc812eaf19be93edf7e17ff2d5cd7254a33892de14`)
     .then(response => response.json())
     .then((data: DataProps)=>{
       const coinsData = data.data
@@ -63,7 +64,10 @@ export function Home () {
       })
 
      // console.log(formatedResult)
-     setCoins(formatedResult)
+     const listCoins = [...coins, ...formatedResult]
+     setCoins(listCoins)
+
+   
     })
   }
 
@@ -76,8 +80,15 @@ export function Home () {
   }
 
   function handleGetMore() {
-    alert('teste')
+    if(offset ===0) {
+      setOffset(10)
+      return
+    }
+
+    setOffset(offset+10)
   }
+
+ 
 
   return(
     <main className={styles.container}>
@@ -126,6 +137,8 @@ export function Home () {
       <button className={styles.buttonMore} onClick={handleGetMore}>
         Carregar mais
       </button>
+
+  
     </main>
   )
 }
