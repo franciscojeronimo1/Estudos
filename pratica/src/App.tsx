@@ -1,12 +1,14 @@
 import { useState } from 'react'
 
-import './App.css'
+
 
 function App() {
   
   return (
     <div>
-      <h1>Ola</h1>
+      <input type="text" placeholder='digite seu nome'/>
+      <button>clique</button>
+      <h1>Ola Francisco</h1>
     </div>
   )
 }
