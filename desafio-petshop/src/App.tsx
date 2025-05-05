@@ -1,11 +1,18 @@
-import { useState } from 'react'
+import { Home } from './pages/home'
+import { createBrowserRouter } from 'react-router-dom'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { Layout } from './components/layout'
 
-  return (
-    <div><h1>ola</h1></div>
-  )
-}
+const router = createBrowserRouter([
+  {
+    element: <Layout/>,
+    children: [
+      {
+        path: "/",
+        element: <Home/>
+      }
+    ]
+  }
+])
 
-export default App
+export {router}
