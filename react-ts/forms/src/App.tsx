@@ -1,4 +1,4 @@
-
+import { NewUser } from './transition'
 import { useState } from 'react'
 import { ButtonSubmit } from './button'
 function App() {
@@ -31,6 +31,9 @@ const [message,setMessage] = useState("")
     </form>
 
     <h2>{message}</h2>
+    <hr />
+
+    <NewUser/>
     </div>
       
   )
