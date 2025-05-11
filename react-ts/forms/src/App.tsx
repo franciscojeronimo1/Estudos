@@ -1,39 +1,21 @@
-import { NewUser } from './transition'
-import { useState } from 'react'
-import { ButtonSubmit } from './button'
+import { useActionState } from 'react'
+
 function App() {
-const [message,setMessage] = useState("")
 
-  async function handleRegister(formData) {
-
-    await new Promise(resolve => setTimeout(resolve,2500))
-
-    const nome = formData.get('nome')
-    const tarefa = formData.get('tarefa')
+  function handleSubmit(prevState, formData) {
+    const nome= formData.get("nome")
 
      console.log(nome)
-    console.log(tarefa)
-    setMessage('Bem vindo' + nome + "tarefatual: " + tarefa)
   }
 
- 
+  const [state,formAction] = useActionState(handleSubmit,null)
   return (
     <div>
-    <h1>Form + action</h1>
-
-    <form action={handleRegister}>
-      <input type="text" name='nome' required  placeholder='digite seu nome...'/><br />
-      <input type="text" name='tarefa' required placeholder='digite a tarefa...' /><br />
-
-      <ButtonSubmit/>
-
+      <h1>UseActionState</h1>
       
-    </form>
-
-    <h2>{message}</h2>
-    <hr />
-
-    <NewUser/>
+      <form action={formAction}> <input type="text " placeholder='Digite seu nome' name='nome' />
+      <button type='submit'>Cadastrar</button>
+      </ form>
     </div>
       
   )
