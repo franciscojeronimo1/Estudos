@@ -10,16 +10,12 @@ describe('App component', () => {
   it('should heading h1 have corret text', () => {
     render(<App/>)
 
-    // const headingElement = screen.getByRole("heading", { level : 1})
+    const headingElement = screen.getByRole("heading", { level : 1})
 
-    // expect(headingElement).toHaveTextContent("Sujeito Catau")
-    // expect(headingElement).toHaveClass("titulo")
+    expect(headingElement).toHaveTextContent("Sujeito Catau")
+    expect(headingElement).toHaveClass("titulo")
 
-    const titleElements = screen.getAllByRole('heading', {level: 1});
 
-    titleElements.map( (element ) => {
-      expect(element).toHaveTextContent("Sujeito Catau")
-    })
   });
 
   it('should change message on button  click', () => {

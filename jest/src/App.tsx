@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import { User } from './User'
+
 
 function App() {
   const [message,setMessage] = useState('bem vindo ao projeto')
@@ -9,8 +11,11 @@ function App() {
       <h1 className='titulo' data-testid="header">Sujeito Catau</h1>
         <p>{message}</p>
 
-        <h1>Sujeito Catau</h1>
         <button onClick={() => setMessage('Estudando testes com reactjs')}>Alterar menssagem</button>
+        <hr />
+        <br />
+    <User/>
+
     </div>
   ) 
 }
