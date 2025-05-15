@@ -1,5 +1,10 @@
+
+import './styles/theme.css'
+import './styles/global.css'
+import { Heading } from './components/Heading'
+
 export function App() {
   return(
-    <h1>Ola</h1>
+    <Heading/>
   )
 }
