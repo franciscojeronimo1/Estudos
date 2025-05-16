@@ -7,6 +7,7 @@ interface CharacterProps {
   ki: string;
   maxKi: string;
   race: string;
+  image: string;
 }
 
 interface ItemProps{
@@ -21,23 +22,26 @@ export function Home() {
   },[])
 
   async function getData() {
-    fetch("https://dragonball-api.com/api/characters?limit=10")
+    fetch("https://dragonball-api.com/api/characters/")
     .then(response => response.json())
     .then((data: ItemProps ) => {
       const characterItem = data.items
 
       setCharacter(characterItem)
+     
     })
   }
 
   return(
-    <div key={}><h1>Home
-      <p><Link to="/detail">Detalhes</Link></p>
+    <div className='flex items-center justify-center '><h1>
+     
       </h1>
       
       <div>
       {character.length > 0 && character.map((item) => (
-        <div key={item.id}><p>nomes {item.name}</p></div>
+         <Link to={`/detail/${item.id}`}> <div className='bg-amber-400 p-2 m-2 border rounded-2xl'  key={item.id}> <img className='w-52 h-52 mb-6 mt-7' src={`${item.image}`} alt="fotos-perso" /> <p>Nome: {item.name}   Raça: {item.race} </p> 
+      
+        </div></Link>
       ))}
 
       </div>
