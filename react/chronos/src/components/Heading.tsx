@@ -1,3 +1,3 @@
-export function Heading() {
-  return <h1>Ola mundo</h1>
+export  function Header() {
+  return
 }
