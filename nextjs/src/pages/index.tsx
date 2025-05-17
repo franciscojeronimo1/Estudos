@@ -1,4 +1,5 @@
 import Head from "next/head";
+import styles from "@/styles/home.module.css"
 
 
 
@@ -8,7 +9,9 @@ export default function Home() {
   <Head>
     <title>Tarefas+ </title>
   </Head>
-  <h1>ola</h1>
+  <main className={styles.main}>
+
+  </main>
     </>
   );
 }
