@@ -14,7 +14,7 @@ interface DataProps{
 
 async function getData() {
   //https://api.github.com/users/franciscojeronimo1/repos
-  const response = await fetch("https://api.github.com/users/franciscojeronimo1/repos")
+  const response = await fetch("https://api.github.com/users/franciscojeronimo1/repos", {next: {revalidate: 120}})
 
   return response.json()
 }
