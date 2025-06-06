@@ -13,7 +13,7 @@ interface PropsParams{
   }
 }
 
-export async function generateMetada({params}: PropsParams) {
+export async function generateMetadata({params}: PropsParams) {
   try {
     const response: GameProps = await fetch(
       `${process.env.NEXT_API_URL}/next-api/?api=game&id=${params.id}`,
