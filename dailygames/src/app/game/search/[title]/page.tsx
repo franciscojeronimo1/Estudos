@@ -16,11 +16,16 @@ async function getData(title: string) {
     }
 }
 
-export default async function Search({
-    params: { title }
-}: {
-    params: { title: string }
-}) {
+export default async function Search(
+    props: {
+        params: Promise<{ title: string }>
+    }
+) {
+    const params = await props.params;
+
+    const {
+        title
+    } = params;
 
     const games: GameProps[] = await getData(title)
     return (
