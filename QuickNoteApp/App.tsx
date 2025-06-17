@@ -1,6 +1,6 @@
 // App.tsx
 import React from 'react';
-import QuickNoteApp from './src/QuickNote'; // Certifique-se de que o caminho está correto
+import QuickNoteApp from './src/QuickNote'; 
 import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
