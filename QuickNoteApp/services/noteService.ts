@@ -1,5 +1,5 @@
 import Realm from 'realm';
-import { Category, Note } from '../types';
+import { Category, Note } from '../src/types/types';
 
 class NoteSchema extends Realm.Object<Note> implements Note {
   _id!: number;

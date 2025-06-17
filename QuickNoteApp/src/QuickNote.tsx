@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from "react";
+import * as Animatable from "react-native-animatable";
 import {
   View,
   Text,
@@ -11,16 +12,17 @@ import {
   Keyboard,
   SafeAreaView,
   StatusBar,
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import { styles } from './styles';
-import { Category, Note } from './types';
-import { NoteService } from './services/noteService';
-
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialIcons";
+import { styles } from "./styles/styles";
+import { Category, Note } from "./types/types";
+import { NoteService } from "../services/noteService";
 
 export default function QuickNoteApp() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>(Category.Work);
-  const [inputText, setInputText] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<Category>(
+    Category.Work
+  );
+  const [inputText, setInputText] = useState<string>("");
   const [notes, setNotes] = useState<Note[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [selectedNotes, setSelectedNotes] = useState<number[]>([]);
@@ -57,7 +59,7 @@ export default function QuickNoteApp() {
     }
 
     setNotes(noteServiceRef.current.getAllNotes());
-    setInputText('');
+    setInputText("");
     Keyboard.dismiss();
   };
 
@@ -70,7 +72,7 @@ export default function QuickNoteApp() {
   const handleRemoveSelectedNotes = (): void => {
     if (!noteServiceRef.current || selectedNotes.length === 0) return;
 
-    selectedNotes.forEach(id => {
+    selectedNotes.forEach((id) => {
       noteServiceRef.current?.removeNote(id);
     });
 
@@ -97,15 +99,13 @@ export default function QuickNoteApp() {
   const toggleSelectMode = () => {
     setIsSelectMode(!isSelectMode);
     if (!isSelectMode) {
-      setSelectedNotes([]); 
+      setSelectedNotes([]);
     }
   };
 
   const toggleNoteSelection = (id: number) => {
-    setSelectedNotes(prev =>
-      prev.includes(id)
-        ? prev.filter(noteId => noteId !== id)
-        : [...prev, id]
+    setSelectedNotes((prev) =>
+      prev.includes(id) ? prev.filter((noteId) => noteId !== id) : [...prev, id]
     );
   };
 
@@ -140,7 +140,9 @@ export default function QuickNoteApp() {
       onPressOut={handlePressOut}
       style={[
         styles.noteItem,
-        isSelectMode && selectedNotes.includes(item._id) && styles.selectedNoteItem
+        isSelectMode &&
+          selectedNotes.includes(item._id) &&
+          styles.selectedNoteItem,
       ]}
     >
       {isSelectMode && (
@@ -151,7 +153,13 @@ export default function QuickNoteApp() {
         </View>
       )}
       <View style={styles.categorySquare} />
-      <Text style={styles.noteText}>{item.text}</Text>
+      <Animatable.Text
+        animation="zoomIn"
+        duration={500}
+        style={styles.noteText}
+      >
+        {item.text}
+      </Animatable.Text>
 
       {!isSelectMode && (
         <>
@@ -159,7 +167,12 @@ export default function QuickNoteApp() {
             <Icon name="edit" size={24} color="#666" style={styles.editIcon} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleRemoveNote(item._id)}>
-            <Icon name="delete" size={24} color="#FF3B30" style={styles.deleteIcon} />
+            <Icon
+              name="delete"
+              size={24}
+              color="#FF3B30"
+              style={styles.deleteIcon}
+            />
           </TouchableOpacity>
         </>
       )}
@@ -167,12 +180,12 @@ export default function QuickNoteApp() {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        behavior={Platform.OS === "ios" ? "padding" : undefined}
         style={{ flex: 1 }}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
+        keyboardVerticalOffset={Platform.OS === "ios" ? 80 : 0}
       >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.container}>
@@ -191,7 +204,9 @@ export default function QuickNoteApp() {
                     onPress={handleRemoveSelectedNotes}
                   >
                     <Icon name="delete" size={20} color="white" />
-                    <Text style={styles.deleteButtonText}>{selectedNotes.length}</Text>
+                    <Text style={styles.deleteButtonText}>
+                      {selectedNotes.length}
+                    </Text>
                   </TouchableOpacity>
                 </View>
               ) : (
@@ -228,7 +243,9 @@ export default function QuickNoteApp() {
               renderItem={renderNote}
               style={styles.notesList}
               contentContainerStyle={{ paddingBottom: 80 }}
-              ListEmptyComponent={<Text style={styles.emptyText}>No notes yet</Text>}
+              ListEmptyComponent={
+                <Text style={styles.emptyText}>No notes yet</Text>
+              }
               keyboardShouldPersistTaps="handled"
             />
 
@@ -242,7 +259,10 @@ export default function QuickNoteApp() {
                   onChangeText={setInputText}
                   onSubmitEditing={handleAddNote}
                 />
-                <TouchableOpacity style={styles.circleButton} onPress={handleAddNote}>
+                <TouchableOpacity
+                  style={styles.circleButton}
+                  onPress={handleAddNote}
+                >
                   <Text style={styles.circleButtonText}>+</Text>
                 </TouchableOpacity>
               </View>
